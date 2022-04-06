@@ -3,10 +3,10 @@ package cm;
 import java.math.BigDecimal;
 
 public class StudentCalc implements ICalculate {
-    private BigDecimal discount = new BigDecimal(5.50);
-    private BigDecimal percentage = new BigDecimal(0.25);
+    private final BigDecimal discount = new BigDecimal("5.5");
+    private final BigDecimal percentage = new BigDecimal("0.25");
     public BigDecimal calculate(BigDecimal amount) {
-        if (amount.compareTo(discount) == -1) return amount;
+        if (amount.compareTo(discount) < 0) return amount;
         else return amount.subtract((amount.subtract(discount).multiply(percentage)));
     }
 }
